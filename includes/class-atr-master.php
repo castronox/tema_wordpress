@@ -10,7 +10,11 @@ class ATR_Master{
         $this->theme_name = 'ATR_Pruebas';
         $this->version = '1.0.0';
 
-
+        $this->cargar_dependencias();
+        $this->cargar_instancias();
+        $this->set_idiomas();
+        $this->definir_admin_hooks();
+        $this->definir_public_hooks();
     }
 
     private function cargar_dependencias(){
@@ -39,5 +43,10 @@ class ATR_Master{
         * La clase responsable de definir todas las acciones en el área del lado cliente/público.
         */
         require_once ATR_DIR_PATH . 'public/class-atr-public.php';
+    }
+
+    private function set_idiomas(){
+        $atr_i18n = new ATR_i18n();
+        $this->cargador->add_action('after_setup_theme', '$atr_i18n', 'load_theme_textadmin');
     }
 }
