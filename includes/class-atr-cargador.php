@@ -55,4 +55,23 @@ class ATR_CARGADOR {
 
         return $shortcodes;
     }
+
+    public function run(){
+
+        foreach($this->actions as $hook_u){
+
+            extract($hook_u, EXTR_OVERWRITE );
+
+            add_action($hook, [ $component, $callback ], $priority, $accepted_args);
+        }
+
+        foreach($this->filters as $hook_u){
+
+            extract($hook_u, EXTR_OVERWRITE );
+
+            add_action($hook, [ $component, $callback ], $priority, $accepted_args);
+        }
+    }
+
+
 }
