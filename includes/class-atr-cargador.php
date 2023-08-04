@@ -71,7 +71,13 @@ class ATR_CARGADOR {
 
             add_action($hook, [ $component, $callback ], $priority, $accepted_args);
         }
-    }
 
+        foreach($this->shortcodes as $shortcode){
+
+            extract($shortcode, EXTR_OVERWRITE);
+
+            add_shortcode($tag, [$component, $callback]);
+        }
+    }
 
 }
