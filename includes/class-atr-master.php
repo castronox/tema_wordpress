@@ -49,4 +49,45 @@ class ATR_Master{
         $atr_i18n = new ATR_i18n();
         $this->cargador->add_action('after_setup_theme', '$atr_i18n', 'load_theme_textadmin');
     }
+
+    private function cargar_instancias(){
+
+        /**
+         * Cree una instancia del cargador que se utilizará para registrar los ganchos con WordPress.
+         */
+
+        $this->cargador      = new ATR_Cargador;
+        $this->atr_admin     = new ATR_Admin ($this->get_theme_name(), $this->get_version() );
+        $this->atr_public    = new ATR_Public ($this->get_theme_name(), $this->get_version() );
+
+        
+    }
+
+    private function definir_admin_hooks(){
+
+    }
+
+    private function definir_public_hooks(){
+
+
+    }
+
+    public function get_theme_name(){
+
+        return $this->theme_name;
+    }
+    public function get_version(){
+
+        return $this->version;
+    }
+
+    public function get_cargador() {
+        
+        return $this->cargador;
+    }
+
+    public function run() {
+
+        $this->cargador->run();
+    }
 }
