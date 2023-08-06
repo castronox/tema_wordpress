@@ -47,7 +47,7 @@ class ATR_Master{
 
     private function set_idiomas(){
         $atr_i18n = new ATR_i18n();
-        $this->cargador->add_action('after_setup_theme', '$atr_i18n', 'load_theme_textadmin');
+        $this->cargador->add_action('after_setup_theme', $atr_i18n, 'load_theme_textadmin');
     }
 
     private function cargar_instancias(){
@@ -69,8 +69,8 @@ class ATR_Master{
 
     private function definir_public_hooks(){
 
-        $this->cargador->add_action('wp_enqueue_sacripts', $this->atr_public, 'enqueue_styles');
-        $this->cargador->add_action('wp_enqueue_sacripts', $this->atr_public, 'enqueue_scripts');
+        $this->cargador->add_action('wp_enqueue_scripts', $this->atr_public, 'enqueue_styles');
+        $this->cargador->add_action('wp_enqueue_scripts', $this->atr_public, 'enqueue_scripts');
 
     }
 

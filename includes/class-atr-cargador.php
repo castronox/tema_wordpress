@@ -5,7 +5,7 @@
  * Registrar todas las acciones y filtros para el tema
  */
 
-class ATR_CARGADOR {
+class ATR_Cargador {
     protected $actions;
     protected $filters;
     protected $shortcodes;
@@ -28,7 +28,7 @@ class ATR_CARGADOR {
         $this->filters = $this->add($this->filters, $hook, $component, $callback, $priority, $accepted_args);
     }
 
-    private function add($hook, $component, $callback, $priority, $accepted_args){
+    private function add($hooks, $hook, $component, $callback, $priority, $accepted_args){
 
         $hooks[] = [
             'hook'              => $hook,
@@ -41,7 +41,7 @@ class ATR_CARGADOR {
         return $hooks;
     }
 
-    public function add_shortcodes($tag, $component, $callback){
+    public function add_shortcode($tag, $component, $callback){
         $this-> shortcodes = $this->add_s($this->shortcodes, $tag, $component, $callback);
     }
 
