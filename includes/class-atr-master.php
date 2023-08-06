@@ -69,6 +69,8 @@ class ATR_Master{
 
     private function definir_public_hooks(){
 
+        $this->cargador->add_action('wp_enqueue_sacripts', $this->atr_public, 'enqueue_styles');
+        $this->cargador->add_action('wp_enqueue_sacripts', $this->atr_public, 'enqueue_scripts');
 
     }
 

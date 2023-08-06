@@ -12,11 +12,11 @@ class ATR_Public{
         $this->version = $version;
     }
 
-    public function enqueue_styles($array){
+    public function enqueue_styles(){
 
         wp_enqueue_style(
             'normalize',
-            get_template_directory_uri() . '/public/css/normalize.css', 
+            ATR_DIR_URI . 'public/css/normalize.css', 
             array(),
             '8.0.1',
             'all'
@@ -24,15 +24,15 @@ class ATR_Public{
         
         wp_enqueue_style(
             'public-css',
-            get_template_directory_uri() . '/public/css/atr-public.css', 
+            ATR_DIR_URI . 'public/css/atr-public.css', 
             array(),
-            '1.0.0',
+            $this->version,
             'all'
         );
     
         wp_enqueue_style(
             'bootstrap-css',
-            get_template_directory_uri() . '/helpers/bootstrap-5.3/css/bootstrap.min.css', 
+            ATR_DIR_URI . 'helpers/bootstrap-5.3/css/bootstrap.min.css', 
             array(),
             '5.3.0',
             'all'
@@ -46,15 +46,15 @@ class ATR_Public{
         
         wp_enqueue_script(
             'public-js' ,
-            get_template_directory_uri() . '/public/js/atr-public.js' ,
+            ATR_DIR_URI . 'public/js/atr-public.js' ,
             ['jquery' , 'bootstrap-min'] ,
-            '1.0.0' ,
+            $this->version ,
             true
         );
     
         wp_enqueue_script(
             'bootstrap-min' ,
-            get_template_directory_uri() . '/helpers/bootstrap-5.3/js/bootstrap.min.js' ,
+            ATR_DIR_URI . 'helpers/bootstrap-5.3/js/bootstrap.min.js' ,
             ['jquery'] ,
             '5.3.0' ,
             true
